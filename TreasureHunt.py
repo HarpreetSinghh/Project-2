@@ -18,10 +18,10 @@ treasure = pygame.image.load('treasure.gif')
 FPS = 30
 imgx = 7
 imgy = 519
-pixMove = 5
+pixMove = 3
+offset = 10
  
 movement = 'right'
- 
 fpsTime = pygame.time.Clock()
  
 class RobotSprite:
@@ -47,25 +47,43 @@ setDisplay.blit(text, textrect)
 pygame.display.update()
  
  
- 
-while True:
- 
+def down(imgx,imgy):
+    if movement == 'down':
+        imgy += pixMove
+        if bg.get_at((imgx,imgy+ offset)).g is not 0:
+            if bg.get_at((imgx + offset,imgy )).g is not 0:
+                left(imgx,imgy)
+            elif bg.get_at((imgx - offset,imgy )).g is not 0:
+                right(imgx,imgy)
+def right(imgx,imgy):
     if movement == 'right':
         imgx += pixMove
-        if imgx > 116:
-            movement = 'up'
- 
-    elif movement == 'up':
+        if bg.get_at((imgx + offset,imgy)).g is not 0:
+            if bg.get_at((imgx,imgy + offset)).g is not 0:
+                up(imgx,imgy)
+            elif bg.get_at((imgx,imgy - offset)).g is not 0:
+                down(imgx,imgy)
+def up(imgx,imgy):
+    if movement == 'up':
         imgy -= pixMove
-         
-         
-     
-    setDisplay.blit(img, (imgx,imgy))
-    for event in pygame.event.get():
-        print event
-        if event.type == QUIT:
-            pygame.quit()
-            sys.exit()
+        if bg.get_at((imgx,imgy - offset)).g is not 0:
+            if bg.get_at((imgx + offset,imgy )).g is not 0:
+                left(imgx,imgy)
+            elif bg.get_at((imgx - offset,imgy )).g is not 0:
+                right(imgx,imgy)
+def left(imgx,imgy):
+    if movement == 'left':
+        imgx -= pixMove
+        if bg.get_at((imgx,imgy+ offset)).g is not 0:
+            if bg.get_at((imgx,imgy + offset)).g is not 0:
+                up(imgx,imgy)
+            elif bg.get_at((imgx,imgy - offset)).g is not 0:
+                down(imgx,imgy)
+                
+while True:
+ right(imgx,imgy)
+ print movement , imgx,imgy 
+    
  
  
     setDisplay.blit(bg, (0,0))
