@@ -31,7 +31,17 @@ class RobotSprite:
         self.image = pygame.image.load('Pirate.gif')
         self.rect = self.image.get_rect()
  
- 
+class TreasureChest:
+  def __init__(self,image):
+    pygame.sprite.Sprite.__init__(self)
+    self.image = pygame.image.load("treasure - Copy.gif")
+    self.rect = self.image.get_rect()
+
+class TresureFound:
+ def__init__(self,text):
+  pygame.sprite.Sprite.__init__(self
+  
+  #class and search to be completed
  
  
 basicfont = pygame.font.SysFont(None, 48)
