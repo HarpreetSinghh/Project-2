@@ -1,0 +1,6 @@
+import os
+import sys
+import pygame
+from pygame.locals import (MOUSEBUTTONDOWN, HWSURFACE, DOUBLEBUF, RESIZABLE,
+QUIT)
+import time
