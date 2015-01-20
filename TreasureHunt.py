@@ -57,42 +57,66 @@ setDisplay.blit(text, textrect)
 pygame.display.update()
  
  
-def down(imgx,imgy):
-    if movement == 'down':
-        imgy += pixMove
-        if bg.get_at((imgx,imgy+ offset)).g is not 0:
-            if bg.get_at((imgx + offset,imgy )).g is not 0:
-                left(imgx,imgy)
-            elif bg.get_at((imgx - offset,imgy )).g is not 0:
-                right(imgx,imgy)
-def right(imgx,imgy):
-    if movement == 'right':
-        imgx += pixMove
-        if bg.get_at((imgx + offset,imgy)).g is not 0:
+
+def checking_right(imgx,imgy,movement):
+    if bg.get_at((imgx + offset,imgy)).g is not 0:
+            print "1"
             if bg.get_at((imgx,imgy + offset)).g is not 0:
-                up(imgx,imgy)
+                print offset
+                movement = 'up'
             elif bg.get_at((imgx,imgy - offset)).g is not 0:
-                down(imgx,imgy)
-def up(imgx,imgy):
-    if movement == 'up':
-        imgy -= pixMove
-        if bg.get_at((imgx,imgy - offset)).g is not 0:
-            if bg.get_at((imgx + offset,imgy )).g is not 0:
-                left(imgx,imgy)
+                movement = 'down'
+    return movement 
+
+def checking_left(imgx,imgy,movement):
+    if bg.get_at((imgx - offset,imgy)).g is not 0:
+            if bg.get_at((imgx ,imgy + offset)).g is not 0:
+                movement = 'up'
+            elif bg.get_at((imgx,imgy - offset )).g is not 0:
+                movement = 'down'
+    return movement 
+
+def checking_down(imgx,imgy,movement):
+    if bg.get_at((imgx,imgy + offset)).g is not 0:
+            if bg.get_at((imgx + offset,imgy)).g is not 0:
+                movement = 'left'
             elif bg.get_at((imgx - offset,imgy )).g is not 0:
-                right(imgx,imgy)
-def left(imgx,imgy):
-    if movement == 'left':
-        imgx -= pixMove
-        if bg.get_at((imgx,imgy+ offset)).g is not 0:
-            if bg.get_at((imgx,imgy + offset)).g is not 0:
-                up(imgx,imgy)
-            elif bg.get_at((imgx,imgy - offset)).g is not 0:
-                down(imgx,imgy)
+                movement = 'right'
+    return movement
+
+def checking_up(imgx,imgy,movement):
+    if bg.get_at((imgx,imgy - offset)).g is not 0:
+            if bg.get_at((imgx - offset,imgy )).g is not 0:
+                movement = 'right'
+            elif bg.get_at((imgx + offset,imgy )).g is not 0:
+                movement = 'left'
+    return movement
                 
 while True:
- right(imgx,imgy)
- print movement , imgx,imgy 
+  setDisplay.fill(black)
+    print movement , imgx,imgy 
+
+    if movement == 'down':
+        imgy += pixMove
+        movement = checking_down(imgx,imgy,movement)
+        
+        
+
+    elif movement == 'right':
+        imgx += pixMove
+        movement = checking_right(imgx,imgy,movement)
+       
+
+                    
+    elif movement == 'up':
+        imgy -= pixMove
+        movement = checking_up(imgx,imgy,movement)
+
+
+    elif movement == 'left':
+        imgx -= pixMove
+        movement = checking_left(imgx,imgy,movement)
+
     
  
  
