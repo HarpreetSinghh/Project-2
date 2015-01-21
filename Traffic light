@@ -12,4 +12,16 @@ def green(self):
     pygame.draw.circle(Display,GREEN,(60,120),120,60)
 def red(self):
     pygame.draw.circle(Display,RED,(60,120),120,60)
+    
+    #Copy new code 
+    
+    def lightcycle(background, red):
+pygame.event.set_blocked(MOUSEBUTTONDOWN)
+buttondown, rect = load_image("start_button_down.jpg")
+buttondown = pygame.transform.scale(buttondown, (145, 160))
+screen.blit(buttondown, (380, 270))
+green = pygame.image.load("images/green.jpg")
+yellow = pygame.image.load("images/yellow.jpg")
+
+#Traffic light is broken
 
