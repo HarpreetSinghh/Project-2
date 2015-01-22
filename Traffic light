@@ -1,27 +1,55 @@
 import pygame
+
 import time
+
 Display=pygame.display.set_mode((200,300),0,32)
+
 GREEN=(0,225,0)
+
 RED=(225,0,0)
+
+
+
+
+class Time:
+
+ def __init__ (self,isItGreen):
+    while running:
+        now = pygame.time.get_ticks()
+
+    if now - start > 2000:
+        if showing == green:
+            showing = red
+        else:
+            showing = green
+
 class TrafficLight:
+    
+    def__init__(self,TrafficLight)
+
+    green= TrafficLight()
+
+    green.draw = pygame.draw.circle(Display,GREEN,(60,120),120,60)
+
+    red.draw =  TrafficLight()
+
+
+    traffic.red= pygame.draw.circle(Display,RED,(60,120),120,60)
+
+def green():
+
+    def__init__self(Green)
+
     pygame.draw.circle(Display,GREEN,(60,120),120,60)
 
-traffic = TrafficLight()
-traffic.TrafficLight
-def green(self):
-    pygame.draw.circle(Display,GREEN,(60,120),120,60)
-def red(self):
+def red():
+    def__init__self(Red)
     pygame.draw.circle(Display,RED,(60,120),120,60)
-    
-    #Copy new code 
-    
-    def lightcycle(background, red):
-pygame.event.set_blocked(MOUSEBUTTONDOWN)
-buttondown, rect = load_image("start_button_down.jpg")
-buttondown = pygame.transform.scale(buttondown, (145, 160))
-screen.blit(buttondown, (380, 270))
-green = pygame.image.load("images/green.jpg")
-yellow = pygame.image.load("images/yellow.jpg")
 
-#Traffic light is broken
+
+
+Green()
+Red()
+Time()
+TrafficLight()
 
