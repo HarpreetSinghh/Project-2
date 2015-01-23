@@ -19,7 +19,7 @@ FPS = 30
 imgx = 7
 imgy = 519
 pixMove = 3
-offset = 10
+offset = 30
  
 movement = 'right'
 fpsTime = pygame.time.Clock()
@@ -59,36 +59,37 @@ pygame.display.update()
  
 
 def checking_right(imgx,imgy,movement):
-    if bg.get_at((imgx + offset,imgy)).g is not 0:
-        if bg.get_at((imgx,imgy + offset)).g is not 0:
+    if bg.get_at((imgx + offset,imgy)).g is not  0:
+        if bg.get_at((imgx,imgy - offset)).g is  0:
             movement = 'up'
-        elif bg.get_at((imgx,imgy - offset)).g is not 0:
+        elif bg.get_at((imgx,imgy + offset)).g is  0:
             movement = 'down'
     return movement 
 
 def checking_left(imgx,imgy,movement):
-    if bg.get_at((imgx - offset,imgy)).g is not 0:
-        if bg.get_at((imgx ,imgy + offset)).g is not 0:
-            movement = 'up'
-        elif bg.get_at((imgx,imgy - offset )).g is not 0:
-            movement = 'down'
+    if bg.get_at((imgx - offset,imgy)).g is not  0:
+            if bg.get_at((imgx ,imgy + 10)).g is  0:
+                movement = 'down'
+            elif bg.get_at((imgx,imgy - offset )).g is  0:
+                movement = 'up'
     return movement 
 
 def checking_down(imgx,imgy,movement):
-    if bg.get_at((imgx,imgy + offset)).g is not 0:
-        if bg.get_at((imgx + offset,imgy)).g is not 0:
-            movement = 'left'
-        elif bg.get_at((imgx - offset,imgy )).g is not 0:
-            movement = 'right'
+    if bg.get_at((imgx,imgy + offset)).g is not  0:
+            if bg.get_at((imgx + offset,imgy)).g is  0:
+                movement = 'right'
+            elif bg.get_at((imgx - offset,imgy )).g is  0:
+                movement = 'left'
     return movement
 
 def checking_up(imgx,imgy,movement):
-    if bg.get_at((imgx,imgy - offset)).g is not 0:
-        if bg.get_at((imgx - offset,imgy )).g is not 0:
-            movement = 'right'
-        elif bg.get_at((imgx + offset,imgy )).g is not 0:
-            movement = 'left'
+    if bg.get_at((imgx,imgy - 10)).g is not  0:
+            if bg.get_at((imgx - offset,imgy )).g is  0:
+                movement = 'left'
+            elif bg.get_at((imgx + offset,imgy )).g is  0:
+                movement = 'right'
     return movement
+
                 
 while True:
   setDisplay.fill(black)
