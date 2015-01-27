@@ -2,17 +2,16 @@ import pygame
 from math import pi
 import time
  
-# Initialize the game engine
+
 pygame.init()
  
-# Define the colors we will use in RGB format
+
 BLACK = (  0,   0,   0)
 WHITE = (255, 255, 255)
-BLUE =  (  0,   0, 255)
 GREEN = (  0, 255,   0)
 RED =   (255,   0,   0)
  
-# Set the height and width of the screen
+
 size = [400, 300]
 screen = pygame.display.set_mode(size)
  
@@ -21,30 +20,33 @@ clock = pygame.time.Clock()
  
 while not done:
  
-    # This limits the while loop to a max of 10 times per second.
-    # Leave this out and we will use all CPU we can.
-    clock.tick(10)
+    
+    
+    clock.tick(100)
      
-    for event in pygame.event.get(): # User did something
-        if event.type == pygame.QUIT: # If user clicked close
-            done=True # Flag that we are done so we exit this loop
+    for event in pygame.event.get(): 
+        if event.type == pygame.QUIT: 
+            done=True 
  
-    # All drawing code happens after the for loop and but
-    # inside the main while done==False loop.
+    
      
-    # Clear the screen and set the screen background
-    #screen.fill(WHITE)
+    
+    screen.fill(WHITE)
  
-    # Draw a rectangle outline
-    #pygame.draw.rect(screen, BLACK, [75, 10, 50, 20], 2)
-     
-    # Draw a solid rectangle
-    #pygame.draw.rect(screen, BLACK, [150, 10, 50, 20])
-     
-    # Draw a circle
+while running:
+    now = pygame.time.get_ticks()
+#returns time since pygame init began
+    if now - start > 2000:
+        if showing == green:
+            showing = red
+        else:
+            showing = green
+            
+class green():
     pygame.draw.circle(screen, GREEN, [60, 250], 30)
 
-    # Draw a circle
+
+class red():
     pygame.draw.circle(screen, RED, [60, 180], 30)
 
     x = 1
@@ -52,12 +54,9 @@ while not done:
     if x ==1:
         pygame.display.flip()
         pygame.time.wait(1000)
-        pygame.draw.circle(screen, BLUE, [60, 250], 30)
         print 'test'
     
-    # Go ahead and update the screen with what we've drawn.
-    # This MUST happen after all the other drawing commands.
+    
     pygame.display.flip()
- 
-# Be IDLE friendly
-pygame.quit()
+    pygame.display.update()
+    
