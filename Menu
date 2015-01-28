@@ -1,1 +1,6 @@
 import pygame
+pygame.init()
+
+background= pygame.image.load("main bck.jpg")
+size= (width, height) =background.get_size()
+
