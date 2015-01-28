@@ -1,0 +1,123 @@
+Pseudo Code
+Importing pygame, sis ,time ,random ,pygame locals and pygame mixer
+Class treasure 
+	Function init (self ,x y )
+		Self x = 900 
+		Self y = 500
+		Self treasure = load image of treasure
+	Function rendertreasure (self)
+		Blit window (self treasure , (self x self y))
+Class two robots 
+	Function init (self image)
+		Load the the first pirate
+		Load the second pirate
+	Function right (x axis y axis movement)
+		If the backround in front is not black 
+			If the backround in front is black 
+				Go up 
+			Else 
+				Go down
+Function left (x axis y axis movement)
+		If the backround in front is not black 
+			If the backround in front is black 
+				Go down  
+			Else 
+				Go up
+	Function down (x axis y axis movement)
+		If the backround in front is not black 
+			If the backround in front is black 
+				Go right  
+			Else 
+				Go left
+	Function up (x axis y axis movement)
+		If the backround in front is not black 
+			If the backround in front is black 
+				Go left 
+			Else 
+				Go right
+
+	Function right1 (x axis y axis movement)
+		If the backround in front is not black 
+			If the backround in front is black 
+				Go up 
+			Else 
+				Go down
+Function left1 (x axis y axis movement)
+		If the backround in front is not black 
+			If the backround in front is black 
+				Go down  
+			Else 
+				Go up
+	Function down1 (x axis y axis movement)
+		If the backround in front is not black 
+			If the backround in front is black 
+				Go right  
+			Else 
+				Go left
+	Function up1 (x axis y axis movement)
+		If the backround in front is not black 
+			If the backround in front is black 
+				Go left 
+			Else 
+				Go right
+
+Function treasure(x axis y axis)
+	If the x axis > 975 and the yaxis =519
+		Reload the treasure on 0.0 
+While True:
+	Play the sound
+	 If the movement1 is left 
+		Move on x axis 
+		Call treasure
+		Call movement1 = checking left 1 
+
+	If the movement1 is right 
+		Move on x axis 
+		Call treasure
+		Call movement1 = checking right 1 
+	If the movement1 is up 
+		Move on y axis 
+		Call treasure
+		Call movement1 = checking up 1 
+	If the movement1 is down 
+		Move on y axis 
+		Call treasure
+		Call movement1 = checking down 1 
+If the random between 0-2000 <30
+Draw a red circle 
+Speed of robot 0
+If the random between 0-2000 <30
+Draw a yellow circle 
+Speed of robot 1
+If the random between 0-2000 <30
+Draw a green circle 
+Speed of robot 5
+If the movement is left 
+		Move on x axis 
+		Call treasure
+		Call movement = checking left  
+
+	If the movement is right 
+		Move on x axis 
+		Call treasure
+		Call movement = checking right  
+	If the movement is up 
+		Move on y axis 
+		Call treasure
+		Call movement = checking up 
+	If the movement is down 
+		Move on y axis 
+		Call treasure
+		Call movement = checking down  
+If the random between 0-2000 <30
+Draw a red circle 
+Speed of robot 0
+If the random between 0-2000 <30
+Draw a yellow circle 
+Speed of robot 1
+If the random between 0-2000 <30
+Draw a green circle 
+Speed of robot 5
+
+
+Bliting the background pirates treasures	
