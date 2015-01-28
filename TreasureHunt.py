@@ -56,7 +56,7 @@ setDisplay.blit(text, textrect)
   
 pygame.display.update()
  
- 
+ #this is movement 
 
 def checking_right(imgx,imgy,movement):
     if bg.get_at((imgx + offset,imgy)).g is not  0:
