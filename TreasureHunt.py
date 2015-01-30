@@ -67,7 +67,7 @@ class Treasure:
 #Class of TwoRobots and defining the image and movement for the robot
 class TwoRobots:
  
-    def __init__(self,image):
+     def __init__(self,image):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load('pirate.gif')
         self.image = pygame.image.load('pirate1.gif')
@@ -144,6 +144,47 @@ class TwoRobots:
     def checking_treasure(imgx,imgy):
         if imgx>975 and imgy==519:
             setDisplay.blit(treasure, (0,0))
+            
+     def __init__(self,image):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load('pirate.gif')
+        self.image = pygame.image.load('pirate1.gif')
+        self.rect = self.image.get_rect()
+ 
+
+    def checking_right(imgx,imgy,movement):
+        if bg.get_at((imgx + offset,imgy)).g is not  0:
+            if bg.get_at((imgx,imgy - offset)).g is  0:
+                movement = 'up'
+            elif bg.get_at((imgx,imgy + offset)).g is  0:
+                movement = 'down'
+        return movement 
+
+    def checking_left(imgx,imgy,movement):
+        if bg.get_at((imgx - offset,imgy)).g is not  0:
+                if bg.get_at((imgx ,imgy + 10)).g is  0:
+                    movement = 'down'
+                elif bg.get_at((imgx,imgy - offset )).g is  0:
+                    movement = 'up'
+        return movement 
+
+    def checking_down(imgx,imgy,movement):
+        if bg.get_at((imgx,imgy + offset)).g is not  0:
+                if bg.get_at((imgx + offset,imgy)).g is  0:
+                    movement = 'right'
+                elif bg.get_at((imgx - offset,imgy )).g is  0:
+                    movement = 'left'
+        if imgx > 500 and imgy > 770:
+            time.sleep(10)
+        return movement
+
+    def checking_up(imgx,imgy,movement):
+        if bg.get_at((imgx,imgy - offset)).g is not  0:
+                if bg.get_at((imgx - offset,imgy )).g is  0:
+                    movement = 'left'
+                elif bg.get_at((imgx + offset,imgy )).g is  0:
+                    movement = 'right'
+        return movement
 
     while True:
             sound.play()
@@ -226,20 +267,20 @@ class TwoRobots:
       
 
 
-                if random.randint(0,2000) < 30:
-                    pygame.draw.circle(setDisplay, red, [300, 878], 50)
-                    light = 'red'
-                    pixMove = 0
-                if random.randint(0,2000) < 30:
-                    pygame.draw.circle(setDisplay, yellow, [300, 878], 50)
-                    light1 = 'yellow'
-                    pixMove = 1
-                if random.randint(0,2000) < 60:
-                    pygame.draw.circle(setDisplay, green, [300, 878], 50)
-                    light = 'green'
-                    pixMove = 5
+                if random.randint(0,2000) < 30: 
+                    pygame.draw.circle(setDisplay, red, [300, 878], 50) 
+                    light = 'red' 
+                    pixMove = 0 
+                if random.randint(0,2000) < 30: 
+                    pygame.draw.circle(setDisplay, yellow, [300, 878], 50) 
+                    light1 = 'yellow' 
+                    pixMove = 1 
+                if random.randint(0,2000) < 60: 
+                    pygame.draw.circle(setDisplay, green, [300, 878], 50) 
+                    light = 'green' 
+                    pixMove = 5 
 
-                if light != "red":
+                if light != "red": 
 
 
                   
