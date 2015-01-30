@@ -198,7 +198,7 @@ class TwoRobots:
                 #if the light is green and it moves by 5 which is the normal speed set
                 pixMove = 5
 
-            if light1 != "red":
+            if light1 != "red": 
 
 
                 if movement == 'right':
