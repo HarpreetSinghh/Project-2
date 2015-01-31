@@ -103,11 +103,6 @@ class Robot:
                 
 
 
-            elif movement1 == 'up':
-                img1y -= pixMove
-                checking_treasure(img1x,img1y)
-                movement1 = checking_up1(img1x,img1y,movement1)
-
 
 
             setDisplay.blit(bg, (0,0))
@@ -116,6 +111,11 @@ class Robot:
             setDisplay.blit(img1, (img1x,img1y))
             pygame.display.flip()
      
+            elif movement1 == 'up':
+                img1y -= pixMove
+                checking_treasure(img1x,img1y)
+                movement1 = checking_up1(img1x,img1y,movement1)
+
  
      
             pygame.display.update()
