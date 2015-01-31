@@ -47,61 +47,64 @@ class Robot:
         self.rect = self.image.get_rect()
 
     
-    def checking_right1(img1x,img1y,movement1):
-        if bg.get_at((img1x + offset,img1y)).g is not  0:
-            if bg.get_at((img1x,img1y + offset)).g is  0:
-                movement1 = 'down'
-            elif bg.get_at((img1x,img1y - offset)).g is  0:
-                movement1 = 'up'
+    def checking_right1(img1x,img1y,movement1): 
+        if bg.get_at((img1x + offset,img1y)).g is not  0: 
+            if bg.get_at((img1x,img1y + offset)).g is  0: 
+                movement1 = 'down' 
+            elif bg.get_at((img1x,img1y - offset)).g is  0: 
+                movement1 = 'up' 
+        return movement1  
+
+    def checking_left1(img1x,img1y,movement1): 
+        if bg.get_at((img1x - offset,img1y)).g is not  0: 
+                if bg.get_at((img1x ,img1y + 100)).g is  0:  
+                    movement1 = 'down' 
+                elif bg.get_at((img1x,img1y - offset )).g is  0: 
+                    movement1 = 'up' 
         return movement1 
 
-    def checking_left1(img1x,img1y,movement1):
-        if bg.get_at((img1x - offset,img1y)).g is not  0:
-                if bg.get_at((img1x ,img1y + 100)).g is  0:
-                    movement1 = 'down'
-                elif bg.get_at((img1x,img1y - offset )).g is  0:
-                    movement1 = 'up'
-        return movement1
+    def checking_down1(img1x,img1y,movement1): 
+        if bg.get_at((img1x,img1y + offset)).g is not  0: 
+                if bg.get_at((img1x + offset,img1y)).g is  0: 
+                    movement1 = 'right' 
+                elif bg.get_at((img1x - offset,img1y )).g is  0: 
+                    movement1 = 'left' 
+        return movement1 
 
-    def checking_down1(img1x,img1y,movement1):
-        if bg.get_at((img1x,img1y + offset)).g is not  0:
-                if bg.get_at((img1x + offset,img1y)).g is  0:
-                    movement1 = 'right'
-                elif bg.get_at((img1x - offset,img1y )).g is  0:
-                    movement1 = 'left'
-        return movement1
-
-    def checking_up1(img1x,img1y,movement1):
-        if bg.get_at((img1x,img1y - offset)).g is not  0:
-                if bg.get_at((img1x - offset,img1y )).g is  0:
-                    movement1 = 'left'
-                elif bg.get_at((img1x + offset,img1y )).g is  0:
-                    movement1 = 'right'
+    def checking_up1(img1x,img1y,movement1): 
+        if bg.get_at((img1x,img1y - offset)).g is not  0: 
+                if bg.get_at((img1x - offset,img1y )).g is  0:  
+                    movement1 = 'left' 
+                elif bg.get_at((img1x + offset,img1y )).g is  0: 
+                    movement1 = 'right' 
         return movement1
     def checking_treasure(imgx,imgy):
         if imgx>975 and imgy==519:
             setDisplay.blit(treasure, (0,0))
 
-    while True:
-            sound.play()
+    while True: 
+            sound.play() 
 
-            if movement1 == 'left':
-                img1x -= pixMove
-                checking_treasure(img1x,img1y)
-                movement1 = checking_left1(img1x,img1y,movement1)
+            if movement1 == 'left': 
+                img1x -= pixMove 
+                checking_treasure(img1x,img1y) 
+                movement1 = checking_left1(img1x,img1y,movement1) 
 
                 
-            elif movement1 == 'down':
-                img1y += pixMove
-                checking_treasure(img1x,img1y)
-                movement1 = checking_down1(img1x,img1y,movement1)
+            elif movement1 == 'down': 
+                img1y += pixMove 
+                checking_treasure(img1x,img1y) 
+                movement1 = checking_down1(img1x,img1y,movement1) 
 
-            elif movement1 == 'right':
-                img1x += pixMove
-                checking_treasure(img1x,img1y)
-                movement1 = checking_right1(img1x,img1y,movement1)
+            elif movement1 == 'right': 
+                img1x += pixMove 
+                checking_treasure(img1x,img1y) 
+                movement1 = checking_right1(img1x,img1y,movement1) 
                 
-
+            elif movement1 == 'up':
+                img1y -= pixMove
+                checking_treasure(img1x,img1y)
+                movement1 = checking_up1(img1x,img1y,movement1)
 
 
 
@@ -111,10 +114,7 @@ class Robot:
             setDisplay.blit(img1, (img1x,img1y))
             pygame.display.flip()
      
-            elif movement1 == 'up':
-                img1y -= pixMove
-                checking_treasure(img1x,img1y)
-                movement1 = checking_up1(img1x,img1y,movement1)
+            
 
  
      
